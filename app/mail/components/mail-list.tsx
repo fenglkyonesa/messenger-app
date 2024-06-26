@@ -1,4 +1,4 @@
-import {ComponentProps, useEffect} from "react"
+import {useEffect} from "react"
 
 import {cn} from "@/lib/utils"
 
@@ -6,7 +6,6 @@ import {Mail} from "@/app/mail/data"
 import {useMail} from "@/app/mail/use-mail"
 import {ScrollArea} from "@/components/ui/scroll-area";
 import {formatDistanceToNow} from "date-fns/formatDistanceToNow";
-import {Badge} from "@/components/ui/badge";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 
 interface MailListProps {
@@ -19,7 +18,7 @@ export function MailList({items}: MailListProps) {
         mail.selected = null
     }, [mail])
     return (
-        <ScrollArea className="h-screen">
+        <ScrollArea className="h-screen ">
             <div className="flex flex-col gap-2 p-4 pt-0">
                 {items.map((item) => (
                     <button
@@ -35,7 +34,7 @@ export function MailList({items}: MailListProps) {
                             })
                         }
                     >
-                        <div className="flex w-full flex-col gap-1">
+                        <div className="flex w-full flex-col gap-1 overflow-hidden">
                             <div className="flex items-center">
                                 <div className="flex items-center gap-2">
                                     <Avatar>
@@ -66,31 +65,12 @@ export function MailList({items}: MailListProps) {
                                             {item.text.substring(0, 300)}
                                         </div>
                                     </div>
-
-
                                 </div>
-
                             </div>
                         </div>
-
-
                     </button>
                 ))}
             </div>
         </ScrollArea>
     )
-}
-
-function getBadgeVariantFromLabel(
-    label: string
-): ComponentProps<typeof Badge>["variant"] {
-    if (["work"].includes(label.toLowerCase())) {
-        return "default"
-    }
-
-    if (["personal"].includes(label.toLowerCase())) {
-        return "outline"
-    }
-
-    return "secondary"
 }

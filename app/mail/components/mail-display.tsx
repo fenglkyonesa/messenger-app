@@ -20,8 +20,8 @@ interface MailDisplayProps {
 export function MailDisplay({mail}: MailDisplayProps) {
     const today = new Date()
     return (
-        <div className="flex h-screen overflow-hidden  flex-col ">
-            {mail && <div className="flex items-center p-2">
+        <div className="flex h-screen  flex-col ">
+            {mail && <div className="flex items-center p-2  ">
                 <div className="flex items-center gap-2">
                     <Tooltip>
                         <TooltipTrigger asChild>
@@ -159,10 +159,7 @@ export function MailDisplay({mail}: MailDisplayProps) {
             <Separator/>
             {mail ? (
                 <div>
-
-
-
-                   111
+                    {mail.id}
                 </div>
             ) : (
                 <div className="p-8  text-muted-foreground m-auto">

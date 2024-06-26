@@ -31,9 +31,8 @@ export function Mail({
         <TooltipProvider delayDuration={0}>
             <ResizablePanelGroup
                 direction="horizontal"
-                className="overflow-hidden"
             >
-                <ResizablePanel className={"min-w-56 max-w-sm"}>
+                <ResizablePanel minSize={35}  maxSize={45} order={1}>
                     <Tabs defaultValue="all">
                         <div className="flex items-center px-4 py-2">
                             <h1 className="text-xl font-bold">Inbox</h1>
@@ -70,7 +69,7 @@ export function Mail({
                     </Tabs>
                 </ResizablePanel>
                 <ResizableHandle withHandle/>
-                <ResizablePanel className={"hidden sm:flex"}>
+                <ResizablePanel minSize={20}  order={2} className="hidden md:block">
                     <MailDisplay
                         mail={mails.find((item) => item.id === mail.selected) || null}
                     />

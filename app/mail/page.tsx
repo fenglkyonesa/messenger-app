@@ -6,7 +6,7 @@ export default function MailPage() {
 
     return (
         <>
-            <div className={"w-full h-screen flex flex-row flex-1 overflow-hidden"}>
+            <div className={" h-screen "}>
                 <Mail
                     mails={mails}
                 />
